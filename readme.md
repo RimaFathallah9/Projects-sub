@@ -13,9 +13,10 @@ My motivation for this work comes from the unequal availability of resources and
 
 The future development of cerebral palsy remains complex and difficult to predict. Researchers use hypotheses and computational models to investigate possible trajectories, but uncertainty remains. This project aims to examine the problem through a research and AI-driven approach, with the hope of developing useful insights that can support future studies and potentially improve patient outcomes.
 
-> **Confidentiality notice:** The source code and detailed implementation of this project may contain confidential information from the Mitacs internship and the associated research project. The code is not publicly shared without authorization from the project supervisor and other relevant parties.
+
 
 ## 2. Mitacs Internship
+> **Confidentiality notice:** The source code and detailed implementation of this project may contain confidential information from the project itself and the associated research project. The code is not publicly shared without authorization from the project supervisor and other relevant parties.
 
 The PDF named `Rapport stage Mitacs - Non Tech - Confidential.pdf` is the report of my Mitacs internship. It provides a non-technical overview of the internship experience and research context.
 
