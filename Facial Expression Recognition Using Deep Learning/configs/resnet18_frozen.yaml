@@ -1,0 +1,18 @@
+# Linear probe: only the new classifier is trained on top of frozen ImageNet features.
+base: base.yaml
+name: resnet18_frozen
+
+data:
+  channels: 3
+  normalize: imagenet
+
+model:
+  name: resnet18
+  pretrained: true
+  trainable_from: fc
+  small_input: true
+  dropout: 0.2
+
+train:
+  lr: 0.001
+  epochs: 30

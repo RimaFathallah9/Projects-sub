@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: cptraj
+Version: 0.1.0
+Summary: Longitudinal multimodal modeling of neurodevelopmental trajectories in pediatric cerebral palsy
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: statsmodels
+Requires-Dist: matplotlib
+Requires-Dist: pyyaml
+Requires-Dist: xgboost
+Requires-Dist: shap
+Requires-Dist: openpyxl
+Provides-Extra: imaging
+Requires-Dist: nibabel; extra == "imaging"
+Requires-Dist: nilearn; extra == "imaging"
+Requires-Dist: dipy; extra == "imaging"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"

@@ -1,0 +1,9 @@
+name: cnn_architecture
+base: ../custom_cnn.yaml
+seeds: [42]
+variants:
+  narrow_3blocks: {model.widths: [32, 64, 128], model.convs_per_block: 2}
+  base_4blocks: {model.widths: [64, 128, 256, 512], model.convs_per_block: 2}
+  wide_4blocks: {model.widths: [96, 192, 384, 768], model.convs_per_block: 2}
+  shallow_1conv: {model.widths: [64, 128, 256, 512], model.convs_per_block: 1}
+  deep_3conv: {model.widths: [64, 128, 256, 512], model.convs_per_block: 3}

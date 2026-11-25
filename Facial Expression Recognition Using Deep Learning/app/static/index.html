@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facial Expression Recognition - Research Demo</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --ink:#1c2330; --muted:#5b6575; --accent:#2f5fd0; --warn:#b4540a; --line:#dfe3ea; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#12151b; --card:#1b2029; --ink:#e8ebf0; --muted:#9aa4b4; --accent:#6b94ff; --warn:#f0a35e; --line:#2b3240; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.5 system-ui,sans-serif; background:var(--bg); color:var(--ink); }
+  main { max-width:860px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; } p.sub { color:var(--muted); margin:0 0 20px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin-bottom:16px; }
+  .notice { border-left:4px solid var(--warn); }
+  label.consent { display:flex; gap:10px; align-items:flex-start; cursor:pointer; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:8px; padding:10px 18px; font-size:1rem; cursor:pointer; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  .row { display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; }
+  .imgs img { width:192px; height:192px; image-rendering:pixelated; border-radius:8px; border:1px solid var(--line); }
+  .imgs figure { margin:0; text-align:center; font-size:.85rem; color:var(--muted); }
+  .bar { display:grid; grid-template-columns:90px 1fr 56px; gap:8px; align-items:center; margin:4px 0; font-size:.92rem; }
+  .track { background:var(--line); height:12px; border-radius:6px; overflow:hidden; }
+  .fill { background:var(--accent); height:100%; }
+  .top .fill { background:#2a9d61; }
+  .warn { color:var(--warn); } .small { font-size:.85rem; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Facial Expression Recognition</h1>
+  <p class="sub">Research demo: a CNN trained on FER-2013 classifies a face image into 7 expression categories.</p>
+
+  <section class="card notice">
+    <strong>Privacy &amp; limitations</strong>
+    <ul class="small">
+      <li>Your image is processed in memory on this server and is <b>not stored or logged</b>.</li>
+      <li>Only upload images of yourself or people who have given you permission.</li>
+      <li>The result is a statistical guess about <i>visible facial configuration</i>. It is <b>not</b> a measurement of anyone's real emotion, and the model is less reliable for some faces, lighting conditions and poses.</li>
+      <li>Do not use the output to make decisions about people.</li>
+    </ul>
+    <label class="consent"><input type="checkbox" id="consent"> <span>I understand the above and consent to this image being processed for this demo.</span></label>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <input type="file" id="file" accept="image/*" disabled>
+      <label class="small"><input type="checkbox" id="detect" checked> detect &amp; crop face</label>
+      <button id="go" disabled>Analyse</button>
+    </div>
+    <p id="msg" class="small"></p>
+  </section>
+
+  <section class="card" id="result" hidden>
+    <h2 id="pred" style="margin-top:0"></h2>
+    <div class="row">
+      <div class="imgs row">
+        <figure><img id="face" alt="Cropped face"><figcaption>Model input (cropped)</figcaption></figure>
+        <figure><img id="cam" alt="Grad-CAM heatmap"><figcaption>Grad-CAM: regions that raised the predicted score</figcaption></figure>
+      </div>
+      <div style="flex:1;min-width:260px" id="bars"></div>
+    </div>
+    <p id="warnings" class="warn"></p>
+    <p id="disc" class="small"></p>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const sync = () => { $('file').disabled = !$('consent').checked; $('go').disabled = !($('consent').checked && $('file').files.length); };
+$('consent').onchange = sync; $('file').onchange = sync;
+$('go').onclick = async () => {
+  const fd = new FormData();
+  fd.append('file', $('file').files[0]);
+  fd.append('consent', $('consent').checked ? 'true' : 'false');
+  fd.append('use_face_detection', $('detect').checked ? 'true' : 'false');
+  $('go').disabled = true; $('msg').textContent = 'Analysing...';
+  try {
+    const r = await fetch('/predict', { method: 'POST', body: fd });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.detail || 'Request failed');
+    $('msg').textContent = '';
+    $('pred').textContent = `Most likely category: ${j.prediction} (${(j.confidence*100).toFixed(1)}%)`;
+    $('face').src = j.face_png; $('cam').src = j.cam_png;
+    const entries = Object.entries(j.probs).sort((a,b) => b[1]-a[1]);
+    $('bars').innerHTML = entries.map(([k,v],i) => `<div class="bar ${i===0?'top':''}"><span>${k}</span><div class="track"><div class="fill" style="width:${(v*100).toFixed(1)}%"></div></div><span>${(v*100).toFixed(1)}%</span></div>`).join('');
+    $('warnings').textContent = j.warnings.join(' '); $('disc').textContent = j.disclaimer;
+    $('result').hidden = false;
+  } catch (e) { $('msg').textContent = 'Error: ' + e.message; }
+  sync();
+};
+</script>
+</body>
+</html>

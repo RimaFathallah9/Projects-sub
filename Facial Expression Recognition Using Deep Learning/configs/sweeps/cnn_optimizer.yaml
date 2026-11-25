@@ -1,0 +1,9 @@
+name: cnn_optimizer
+base: ../custom_cnn.yaml
+seeds: [42]
+variants:             # explicit override sets, because the best LR differs per optimizer
+  adamw_1e-3: {train.optimizer: adamw, train.lr: 0.001}
+  adam_1e-3: {train.optimizer: adam, train.lr: 0.001, train.weight_decay: 0.0}
+  sgd_nesterov_0.05: {train.optimizer: sgd, train.lr: 0.05, train.weight_decay: 0.0005}
+  sgd_nesterov_0.01: {train.optimizer: sgd, train.lr: 0.01, train.weight_decay: 0.0005}
+  rmsprop_3e-4: {train.optimizer: rmsprop, train.lr: 0.0003}

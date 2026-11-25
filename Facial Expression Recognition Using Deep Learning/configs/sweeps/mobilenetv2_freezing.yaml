@@ -1,0 +1,6 @@
+name: mobilenetv2_freezing
+base: ../mobilenetv2.yaml
+mode: ofat
+seeds: [42]
+factors:
+  model.freeze_blocks: [19, 14, 7, 0]   # 19 = classifier only ... 0 = everything trainable

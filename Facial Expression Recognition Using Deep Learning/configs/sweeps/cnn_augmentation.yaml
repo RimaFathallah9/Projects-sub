@@ -1,0 +1,6 @@
+name: cnn_augmentation
+base: ../custom_cnn.yaml
+mode: ofat
+seeds: [42]
+factors:
+  data.augmentation: [none, basic, strong]

@@ -1,0 +1,8 @@
+name: mobilenetv2_input_protocol
+base: ../mobilenetv2.yaml
+seeds: [42]
+variants:
+  s48_stock_stem: {data.image_size: 48, model.small_input: false}
+  s48_stride1_stem: {data.image_size: 48, model.small_input: true}
+  s96_stock_stem: {data.image_size: 96, model.small_input: false}
+  s112_stock_stem: {data.image_size: 112, model.small_input: false}

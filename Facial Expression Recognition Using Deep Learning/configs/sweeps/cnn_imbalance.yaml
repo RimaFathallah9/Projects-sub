@@ -1,0 +1,11 @@
+name: cnn_imbalance
+base: ../custom_cnn.yaml
+seeds: [42]
+variants:
+  none: {}
+  cw_inverse: {train.class_weight: inverse}
+  cw_sqrt_inverse: {train.class_weight: sqrt_inverse}
+  cw_effective_num: {train.class_weight: effective_num}
+  weighted_sampler: {data.weighted_sampler: true}
+  focal_g2: {train.loss: focal, train.focal_gamma: 2.0}
+  label_smoothing_0.1: {train.label_smoothing: 0.1}

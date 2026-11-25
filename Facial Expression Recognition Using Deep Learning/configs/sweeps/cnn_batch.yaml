@@ -1,0 +1,6 @@
+name: cnn_batch
+base: ../custom_cnn.yaml
+mode: ofat
+seeds: [42]
+factors:
+  data.batch_size: [32, 64, 128, 256]

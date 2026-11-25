@@ -1,0 +1,6 @@
+name: cnn_lr
+base: ../custom_cnn.yaml
+mode: ofat            # ofat: each value tried alone from the base config | grid: full product
+seeds: [42]
+factors:
+  train.lr: [0.0003, 0.001, 0.003, 0.01]

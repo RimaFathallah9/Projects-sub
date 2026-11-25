@@ -1,0 +1,39 @@
+name: base
+seed: 42
+deterministic: true
+device: auto
+output_dir: outputs/runs
+
+data:
+  root: data                      # data/train/<class> and data/test/<class> (or data/fer2013.csv)
+  cache_dir: data/processed
+  split_seed: 42                  # fixed: all training seeds share the same split
+  val_fraction: 0.1               # only used when the source has no validation split
+  remove_cross_split_duplicates: true
+  image_size: 48
+  channels: 1
+  normalize: simple               # simple | imagenet
+  augmentation: basic             # none | basic | strong
+  batch_size: 128
+  num_workers: 0                  # Windows + OneDrive: extra workers often hang; raise this on Linux
+  weighted_sampler: false
+
+model:
+  name: custom_cnn
+
+train:
+  epochs: 60
+  optimizer: adamw                # adam | adamw | sgd | rmsprop
+  lr: 0.001
+  weight_decay: 0.0001
+  scheduler: cosine               # cosine | step | plateau | onecycle | none
+  warmup_epochs: 0
+  loss: ce                        # ce | focal
+  label_smoothing: 0.0
+  class_weight: none              # none | inverse | sqrt_inverse | effective_num
+  focal_gamma: 2.0
+  patience: 12
+  monitor: val_macro_f1           # val_macro_f1 | val_acc | val_loss
+  amp: true
+  grad_clip: 0.0
+  backbone_lr_mult: 1.0           # <1 => discriminative LR for pretrained backbones

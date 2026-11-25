@@ -1,0 +1,21 @@
+# Full fine-tuning with discriminative learning rates (backbone lr = 0.1 x head lr).
+base: base.yaml
+name: resnet18_finetune
+
+data:
+  channels: 3
+  normalize: imagenet
+  batch_size: 64
+
+model:
+  name: resnet18
+  pretrained: true
+  trainable_from: all
+  small_input: true
+  dropout: 0.3
+
+train:
+  lr: 0.001
+  backbone_lr_mult: 0.1
+  epochs: 40
+  warmup_epochs: 2

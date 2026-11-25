@@ -1,0 +1,17 @@
+[project]
+name = "cptraj"
+version = "0.1.0"
+description = "Longitudinal multimodal modeling of neurodevelopmental trajectories in pediatric cerebral palsy"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "scipy", "scikit-learn", "statsmodels", "matplotlib", "pyyaml", "xgboost", "shap", "openpyxl"]
+
+[project.optional-dependencies]
+imaging = ["nibabel", "nilearn", "dipy"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

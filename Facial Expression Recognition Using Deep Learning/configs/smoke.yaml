@@ -1,0 +1,9 @@
+# 2-epoch run to verify the pipeline end to end (results are meaningless).
+base: custom_cnn.yaml
+name: smoke
+output_dir: outputs/smoke
+train:
+  epochs: 2
+  patience: 0
+data:
+  num_workers: 0

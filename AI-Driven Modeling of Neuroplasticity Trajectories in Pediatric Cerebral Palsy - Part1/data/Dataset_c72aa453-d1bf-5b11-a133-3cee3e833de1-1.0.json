@@ -1,0 +1,260 @@
+{
+  "data": {
+    "accessRights": {
+      "code": "RESTRICTED",
+      "name": {
+        "de": "Eingeschränkt",
+        "en": "Restricted",
+        "fr": "Restreint",
+        "it": "Ristretto"
+      },
+      "uri": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
+      "vocabularyIdentifier": "RightsStatement_ACCESS_RIGHTS"
+    },
+    "conformsTo": [
+      {
+        "uri": "http://fdp.dcc.sib.swiss/profile/2f08228e-1789-40f8-84cd-28e3288c3604"
+      }
+    ],
+    "contactPoints": [
+      {
+        "fn": {
+          "de": "Dr. Morgan Sangeux"
+        },
+        "hasEmail": "Morgan.Sangeux@ukbb.ch",
+        "kind": "Organization"
+      }
+    ],
+    "description": {
+      "en": "The dataset contains clinical gait analysis data for two populations, cerebral palsy and toe walking patients, that were collected at two different centers, the clinical gait analysis services at UKBB and HUG. The dataset contains physical examination data (anthropometric measurements, range of motion measurements, muscle strength assessments and spasticity assessments), surgical procedure data, and instrumented gait analysis data (spatio-temporal parameters, gait scores, kinematics, kinetics and electromyography data), as well as SOP for both centers."
+    },
+    "distributions": [
+      {
+        "accessServices": [],
+        "accessUrl": {
+          "uri": "http://fdp.dcc.sib.swiss/distribution/c1bd5d80-086a-5c94-b2fa-4e8ad558ae5d"
+        },
+        "conformsTo": [
+          {
+            "uri": "http://fdp.dcc.sib.swiss/profile/02c649de-c579-43bb-b470-306abdc808c7"
+          }
+        ],
+        "coverage": [],
+        "description": {
+          "en": "Distribution of Clinical gait analysis data for cerebral palsy and toe walking patients in CSV format"
+        },
+        "documentation": [],
+        "downloadUrl": {
+          "uri": "http://fdp.dcc.sib.swiss/distribution/c1bd5d80-086a-5c94-b2fa-4e8ad558ae5d"
+        },
+        "format": {
+          "code": "CSV",
+          "name": {
+            "de": "CSV",
+            "en": "CSV",
+            "fr": "CSV",
+            "it": "CSV"
+          },
+          "uri": "http://publications.europa.eu/resource/authority/file-type/CSV",
+          "vocabularyIdentifier": "VOCAB_I14Y_FILE_TYPE"
+        },
+        "identifier": "c1bd5d80-086a-5c94-b2fa-4e8ad558ae5d",
+        "images": [],
+        "issued": "2026-02-24T15:27:40+01:00",
+        "languages": [
+          {
+            "code": "en",
+            "name": {
+              "de": "Englisch",
+              "en": "English",
+              "fr": "anglais",
+              "it": "Inglese"
+            },
+            "uri": "https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1=en",
+            "vocabularyIdentifier": "Languages_Iso_639"
+          }
+        ],
+        "modified": "2026-02-24T15:27:40+01:00",
+        "rights": "The data can be accessed and used by the persons authorized to access the BioMedIT space of the EVIGAITCP project. Other interested parties may contact the project leader (morgan.sangeux@ukbb.ch) to discuss reuse conditions.",
+        "title": {
+          "en": "Distribution of Clinical gait analysis data for cerebral palsy and toe walking patients"
+        }
+      }
+    ],
+    "documentation": [],
+    "geoIvIds": [],
+    "identifiers": [
+      "c72aa453-d1bf-5b11-a133-3cee3e833de1"
+    ],
+    "images": [],
+    "isReferencedBy": [],
+    "issued": "2026-02-24T15:27:40+01:00",
+    "keywords": [],
+    "landingPages": [],
+    "languages": [
+      {
+        "code": "en",
+        "name": {
+          "de": "Englisch",
+          "en": "English",
+          "fr": "anglais",
+          "it": "Inglese"
+        },
+        "uri": "https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1=en",
+        "vocabularyIdentifier": "Languages_Iso_639"
+      }
+    ],
+    "modified": "2026-02-24T15:27:40+01:00",
+    "publicationLevel": "Public",
+    "publisher": {
+      "identifier": "CH_SPHN",
+      "images": [],
+      "name": {
+        "de": "Swiss Personalized Health Network",
+        "en": "Swiss Personalized Health Network",
+        "fr": "Swiss Personalized Health Network",
+        "it": "Swiss Personalized Health Network"
+      },
+      "prefLabel": {
+        "de": "Swiss Personalized Health Network",
+        "en": "Swiss Personalized Health Network",
+        "fr": "Swiss Personalized Health Network",
+        "it": "Swiss Personalized Health Network"
+      },
+      "system": {
+        "createdAt": "2025-08-25T09:11:21.294631+00:00"
+      },
+      "spatial": [
+        "CH"
+      ],
+      "spatialCH": [],
+      "subOrganizations": []
+    },
+    "qualifiedAttributions": [
+      {
+        "agent": {
+          "description": {
+            "en": "Universitats-Kinderspital beider Basel"
+          },
+          "homePage": "https://www.ukbb.ch",
+          "identifier": "CHE-112.453.018",
+          "images": [],
+          "name": {
+            "en": "Universitats-Kinderspital beider Basel"
+          },
+          "prefLabel": {
+            "en": "Universitats-Kinderspital beider Basel"
+          },
+          "system": {
+            "createdAt": "2026-02-20T10:41:45.808905+00:00"
+          },
+          "spatial": [],
+          "spatialCH": [],
+          "subOrganizations": [],
+          "uid": "CHE112453018"
+        },
+        "hadRole": {
+          "code": "resourceProvider",
+          "name": {
+            "de": "Ressourcenanbieterin | Ressourcenanbieter",
+            "en": "resourceProvider",
+            "fr": "fournisseur de ressource"
+          },
+          "vocabularyIdentifier": "VOCAB_I14Y_ATTRIBUTION_ROLE"
+        }
+      },
+      {
+        "agent": {
+          "description": {
+            "en": "Hopitaux universitaires de Geneve"
+          },
+          "homePage": "https://www.hug.ch",
+          "identifier": "CHE-108.907.884",
+          "images": [],
+          "name": {
+            "en": "Hopitaux universitaires de Geneve"
+          },
+          "prefLabel": {
+            "en": "Hopitaux universitaires de Geneve"
+          },
+          "system": {
+            "createdAt": "2026-02-20T10:41:45.083444+00:00"
+          },
+          "spatial": [],
+          "spatialCH": [],
+          "subOrganizations": [],
+          "uid": "CHE108907884"
+        },
+        "hadRole": {
+          "code": "resourceProvider",
+          "name": {
+            "de": "Ressourcenanbieterin | Ressourcenanbieter",
+            "en": "resourceProvider",
+            "fr": "fournisseur de ressource"
+          },
+          "vocabularyIdentifier": "VOCAB_I14Y_ATTRIBUTION_ROLE"
+        }
+      }
+    ],
+    "qualifiedRelations": [
+      {
+        "hadRole": {
+          "code": "original",
+          "name": {
+            "de": "Original",
+            "en": "Original",
+            "fr": "Original",
+            "it": "Originale"
+          },
+          "uri": "http://www.iana.org/assignments/relation/original",
+          "vocabularyIdentifier": "VOCAB_I14Y_RELATIONSHIP_ROLE"
+        },
+        "relation": {
+          "uri": "http://fdp.dcc.sib.swiss/dataset/c72aa453-d1bf-5b11-a133-3cee3e833de1"
+        }
+      }
+    ],
+    "registrationStatus": "Recorded",
+    "relations": [],
+    "system": {
+      "createdAt": "2026-04-22T09:19:32.038839+00:00",
+      "creationType": "Automated",
+      "modifiedAt": "2026-04-22T09:38:14.534022+00:00"
+    },
+    "spatial": [],
+    "temporalCoverage": [
+      {
+        "start": "1993-01-01T01:00:00+01:00",
+        "end": "2024-12-31T01:00:00+01:00"
+      }
+    ],
+    "themes": [
+      {
+        "code": "114",
+        "name": {
+          "de": "Gesundheit",
+          "en": "Health",
+          "fr": "Santé",
+          "it": "Salute"
+        },
+        "uri": "https://register.ld.admin.ch/i14y/concept/DV_DCAT_DATASET_THEME/114",
+        "vocabularyIdentifier": "Concept_DATASET_THEME"
+      },
+      {
+        "code": "HEAL",
+        "name": {
+          "de": "Gesundheit",
+          "en": "Health",
+          "fr": "Santé",
+          "it": "Salute"
+        },
+        "uri": "http://publications.europa.eu/resource/authority/data-theme/HEAL",
+        "vocabularyIdentifier": "VOCAB_EU_DATA_THEME"
+      }
+    ],
+    "title": {
+      "en": "Clinical gait analysis data for cerebral palsy and toe walking patients"
+    },
+    "version": "1.0"
+  }
+}

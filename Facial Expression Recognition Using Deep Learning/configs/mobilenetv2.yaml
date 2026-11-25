@@ -1,0 +1,20 @@
+base: base.yaml
+name: mobilenetv2
+
+data:
+  channels: 3
+  normalize: imagenet
+  batch_size: 64
+
+model:
+  name: mobilenetv2
+  pretrained: true
+  freeze_blocks: 0
+  small_input: true
+  dropout: 0.3
+
+train:
+  lr: 0.001
+  backbone_lr_mult: 0.1
+  epochs: 40
+  warmup_epochs: 2

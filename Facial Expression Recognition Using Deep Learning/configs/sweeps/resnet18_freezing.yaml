@@ -1,0 +1,6 @@
+name: resnet18_freezing
+base: ../resnet18_finetune.yaml
+mode: ofat
+seeds: [42]
+factors:
+  model.trainable_from: [fc, layer4, layer3, layer1, all]

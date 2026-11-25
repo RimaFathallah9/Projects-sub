@@ -1,0 +1,10 @@
+base: base.yaml
+name: custom_cnn
+
+model:
+  name: custom_cnn
+  widths: [64, 128, 256, 512]
+  convs_per_block: 2
+  dropout: 0.25
+  head_dropout: 0.5
+  hidden: 256
